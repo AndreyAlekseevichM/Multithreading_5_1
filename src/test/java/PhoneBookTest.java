@@ -8,11 +8,13 @@ import java.util.TreeMap;
 
 public class PhoneBookTest {
     Map<String, Integer> expected = new TreeMap<>();
+
     @BeforeAll
     static void contactAdd() {
         PhoneBook.add("Petya", 1000000001);
         PhoneBook.add("Olya", 1000000002);
     }
+
     @Test
     void add() {
         int actualNumber = PhoneBook.add("Olya", 1000000002);
@@ -29,7 +31,7 @@ public class PhoneBookTest {
         String expected = "Petya";
         String actual = PhoneBook.findByNumber(1000000001);
         String nonExpected = "Olya";
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
         Assertions.assertNotEquals(nonExpected, actual);
         Assertions.assertNotNull(actual);
     }
